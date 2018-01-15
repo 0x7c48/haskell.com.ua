@@ -10602,7 +10602,8 @@ var _user$project$Page_Menu$render = function (model) {
 										_0: _elm_lang$html$Html_Attributes$class('navbar-item'),
 										_1: {
 											ctor: '::',
-											_0: _elm_lang$html$Html_Attributes$href('https://0x7c48.github.io/haskell.com.ua/'),
+											_0: _elm_lang$html$Html_Events$onClick(
+												_user$project$Types$NewUrl('https://0x7c48.github.io/haskell.com.ua')),
 											_1: {ctor: '[]'}
 										}
 									},
@@ -10696,7 +10697,7 @@ var _user$project$Page_Menu$render = function (model) {
 													_1: {
 														ctor: '::',
 														_0: _elm_lang$html$Html_Events$onClick(
-															_user$project$Types$NewUrl('https://0x7c48.github.io/haskell.com.ua/')),
+															_user$project$Types$NewUrl('https://0x7c48.github.io/haskell.com.ua')),
 														_1: {ctor: '[]'}
 													}
 												},
