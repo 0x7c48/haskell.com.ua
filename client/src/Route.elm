@@ -10,6 +10,7 @@ matchers =
     oneOf
         [ map Types.Home (s "")
         , map Types.Home (s "/")
+        , map Types.Home (s "haskell.com.ua")
         , map Types.Home (s "home")
         , map Types.About (s "about")
         , map Types.About (s "tech")

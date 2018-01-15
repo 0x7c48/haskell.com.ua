@@ -9929,65 +9929,72 @@ var _user$project$Route$matchers = _evancz$url_parser$UrlParser$oneOf(
 				_0: A2(
 					_evancz$url_parser$UrlParser$map,
 					_user$project$Types$Home,
-					_evancz$url_parser$UrlParser$s('home')),
+					_evancz$url_parser$UrlParser$s('haskell.com.ua')),
 				_1: {
 					ctor: '::',
 					_0: A2(
 						_evancz$url_parser$UrlParser$map,
-						_user$project$Types$About,
-						_evancz$url_parser$UrlParser$s('about')),
+						_user$project$Types$Home,
+						_evancz$url_parser$UrlParser$s('home')),
 					_1: {
 						ctor: '::',
 						_0: A2(
 							_evancz$url_parser$UrlParser$map,
 							_user$project$Types$About,
-							_evancz$url_parser$UrlParser$s('tech')),
+							_evancz$url_parser$UrlParser$s('about')),
 						_1: {
 							ctor: '::',
 							_0: A2(
 								_evancz$url_parser$UrlParser$map,
 								_user$project$Types$About,
-								_evancz$url_parser$UrlParser$s('elm')),
+								_evancz$url_parser$UrlParser$s('tech')),
 							_1: {
 								ctor: '::',
 								_0: A2(
 									_evancz$url_parser$UrlParser$map,
 									_user$project$Types$About,
-									_evancz$url_parser$UrlParser$s('python')),
+									_evancz$url_parser$UrlParser$s('elm')),
 								_1: {
 									ctor: '::',
 									_0: A2(
 										_evancz$url_parser$UrlParser$map,
 										_user$project$Types$About,
-										_evancz$url_parser$UrlParser$s('django')),
+										_evancz$url_parser$UrlParser$s('python')),
 									_1: {
 										ctor: '::',
 										_0: A2(
 											_evancz$url_parser$UrlParser$map,
 											_user$project$Types$About,
-											_evancz$url_parser$UrlParser$s('clojure')),
+											_evancz$url_parser$UrlParser$s('django')),
 										_1: {
 											ctor: '::',
 											_0: A2(
 												_evancz$url_parser$UrlParser$map,
 												_user$project$Types$About,
-												_evancz$url_parser$UrlParser$s('clojurescript')),
+												_evancz$url_parser$UrlParser$s('clojure')),
 											_1: {
 												ctor: '::',
 												_0: A2(
 													_evancz$url_parser$UrlParser$map,
 													_user$project$Types$About,
-													_evancz$url_parser$UrlParser$s('flask')),
+													_evancz$url_parser$UrlParser$s('clojurescript')),
 												_1: {
 													ctor: '::',
 													_0: A2(
 														_evancz$url_parser$UrlParser$map,
-														_user$project$Types$PostShow,
-														A2(
-															_evancz$url_parser$UrlParser_ops['</>'],
-															_evancz$url_parser$UrlParser$s('post'),
-															_evancz$url_parser$UrlParser$int)),
-													_1: {ctor: '[]'}
+														_user$project$Types$About,
+														_evancz$url_parser$UrlParser$s('flask')),
+													_1: {
+														ctor: '::',
+														_0: A2(
+															_evancz$url_parser$UrlParser$map,
+															_user$project$Types$PostShow,
+															A2(
+																_evancz$url_parser$UrlParser_ops['</>'],
+																_evancz$url_parser$UrlParser$s('post'),
+																_evancz$url_parser$UrlParser$int)),
+														_1: {ctor: '[]'}
+													}
 												}
 											}
 										}
