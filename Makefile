@@ -17,6 +17,10 @@ FE_ROOT ?= client
 FE_SRC ?= src
 FE_BUILD ?= dist/build
 
+github-pages:
+	cp client/index.html . && \
+	cp client/main.js .
+
 reload-fe:
 	cd $(FE_ROOT) && \
 	elm-live $(FE_SRC)/Main.elm \

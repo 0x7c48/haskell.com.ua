@@ -1,0 +1,35 @@
+<!doctype html>
+<html class="has-navbar-fixed-top">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Haskell.com.ua</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="main.js"></script>
+</head>
+
+<body>
+    <div id="main"></div>
+     <script>
+      // elm app
+      var node = document.getElementById('main');
+      var app = Elm.Main.embed(node);
+      // header title
+      app.ports.setTitle.subscribe(function (str) {
+        console.log("app.ports", str);
+        document.title = str;
+      });
+    </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-45810421-5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-45810421-5');
+  </script>
+</body>
+
+</html>

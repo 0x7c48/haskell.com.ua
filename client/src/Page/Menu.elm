@@ -14,7 +14,7 @@ render model =
         , div [ class "container" ]
             [ div [ class "navbar-brand" ]
                 [ a [ class "navbar-item", href "/" ]
-                    [ img [ alt "haskell.com.ua", attribute "height" "28", src "/assets/haskell-logo.svg" ]
+                    [ img [ alt "haskell.com.ua", attribute "height" "28", src "https://www.haskell.org/static/img/haskell-logo.svg" ]
                         []
                     ]
                 , div [ class "navbar-burger burger", attribute "data-target" "navBarMenu" ]
