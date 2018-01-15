@@ -9923,78 +9923,71 @@ var _user$project$Route$matchers = _evancz$url_parser$UrlParser$oneOf(
 			_0: A2(
 				_evancz$url_parser$UrlParser$map,
 				_user$project$Types$Home,
-				_evancz$url_parser$UrlParser$s('/')),
+				_evancz$url_parser$UrlParser$s('haskell.com.ua')),
 			_1: {
 				ctor: '::',
 				_0: A2(
 					_evancz$url_parser$UrlParser$map,
 					_user$project$Types$Home,
-					_evancz$url_parser$UrlParser$s('haskell.com.ua')),
+					_evancz$url_parser$UrlParser$s('home')),
 				_1: {
 					ctor: '::',
 					_0: A2(
 						_evancz$url_parser$UrlParser$map,
-						_user$project$Types$Home,
-						_evancz$url_parser$UrlParser$s('home')),
+						_user$project$Types$About,
+						_evancz$url_parser$UrlParser$s('about')),
 					_1: {
 						ctor: '::',
 						_0: A2(
 							_evancz$url_parser$UrlParser$map,
 							_user$project$Types$About,
-							_evancz$url_parser$UrlParser$s('about')),
+							_evancz$url_parser$UrlParser$s('tech')),
 						_1: {
 							ctor: '::',
 							_0: A2(
 								_evancz$url_parser$UrlParser$map,
 								_user$project$Types$About,
-								_evancz$url_parser$UrlParser$s('tech')),
+								_evancz$url_parser$UrlParser$s('elm')),
 							_1: {
 								ctor: '::',
 								_0: A2(
 									_evancz$url_parser$UrlParser$map,
 									_user$project$Types$About,
-									_evancz$url_parser$UrlParser$s('elm')),
+									_evancz$url_parser$UrlParser$s('python')),
 								_1: {
 									ctor: '::',
 									_0: A2(
 										_evancz$url_parser$UrlParser$map,
 										_user$project$Types$About,
-										_evancz$url_parser$UrlParser$s('python')),
+										_evancz$url_parser$UrlParser$s('django')),
 									_1: {
 										ctor: '::',
 										_0: A2(
 											_evancz$url_parser$UrlParser$map,
 											_user$project$Types$About,
-											_evancz$url_parser$UrlParser$s('django')),
+											_evancz$url_parser$UrlParser$s('clojure')),
 										_1: {
 											ctor: '::',
 											_0: A2(
 												_evancz$url_parser$UrlParser$map,
 												_user$project$Types$About,
-												_evancz$url_parser$UrlParser$s('clojure')),
+												_evancz$url_parser$UrlParser$s('clojurescript')),
 											_1: {
 												ctor: '::',
 												_0: A2(
 													_evancz$url_parser$UrlParser$map,
 													_user$project$Types$About,
-													_evancz$url_parser$UrlParser$s('clojurescript')),
+													_evancz$url_parser$UrlParser$s('flask')),
 												_1: {
 													ctor: '::',
 													_0: A2(
 														_evancz$url_parser$UrlParser$map,
-														_user$project$Types$About,
-														_evancz$url_parser$UrlParser$s('flask')),
-													_1: {
-														ctor: '::',
-														_0: A2(
-															_evancz$url_parser$UrlParser$map,
-															_user$project$Types$PostShow,
-															A2(
-																_evancz$url_parser$UrlParser_ops['</>'],
-																_evancz$url_parser$UrlParser$s('post'),
-																_evancz$url_parser$UrlParser$int)),
-														_1: {ctor: '[]'}
-													}
+														_user$project$Types$PostShow,
+														A2(
+															_evancz$url_parser$UrlParser_ops['</>'],
+															_evancz$url_parser$UrlParser$s('post'),
+															_evancz$url_parser$UrlParser$int)),
+													_1: {ctor: '[]'}
 												}
 											}
 										}
@@ -10609,7 +10602,7 @@ var _user$project$Page_Menu$render = function (model) {
 										_0: _elm_lang$html$Html_Attributes$class('navbar-item'),
 										_1: {
 											ctor: '::',
-											_0: _elm_lang$html$Html_Attributes$href('/'),
+											_0: _elm_lang$html$Html_Attributes$href('https://0x7c48.github.io/haskell.com.ua/'),
 											_1: {ctor: '[]'}
 										}
 									},
@@ -10703,7 +10696,7 @@ var _user$project$Page_Menu$render = function (model) {
 													_1: {
 														ctor: '::',
 														_0: _elm_lang$html$Html_Events$onClick(
-															_user$project$Types$NewUrl('/')),
+															_user$project$Types$NewUrl('https://0x7c48.github.io/haskell.com.ua/')),
 														_1: {ctor: '[]'}
 													}
 												},
