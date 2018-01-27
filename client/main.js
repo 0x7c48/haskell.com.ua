@@ -10022,6 +10022,9 @@ var _user$project$Types$initialModel = function (route) {
 var _user$project$Types$Model = function (a) {
 	return {route: a};
 };
+var _user$project$Types$SendToJs = function (a) {
+	return {ctor: 'SendToJs', _0: a};
+};
 var _user$project$Types$OnLocationChange = function (a) {
 	return {ctor: 'OnLocationChange', _0: a};
 };
@@ -10598,25 +10601,47 @@ var _user$project$Ports$setTitle = _elm_lang$core$Native_Platform.outgoingPort(
 	function (v) {
 		return v;
 	});
+var _user$project$Ports$updateAnalytics = _elm_lang$core$Native_Platform.outgoingPort(
+	'updateAnalytics',
+	function (v) {
+		return v;
+	});
 
 var _user$project$Update$update = F2(
 	function (msg, model) {
 		var _p0 = msg;
-		if (_p0.ctor === 'OnLocationChange') {
-			var newRoute = _user$project$Route$parseLocation(_p0._0);
-			return {
-				ctor: '_Tuple2',
-				_0: _elm_lang$core$Native_Utils.update(
-					model,
-					{route: newRoute}),
-				_1: _elm_lang$core$Platform_Cmd$none
-			};
-		} else {
-			return {
-				ctor: '_Tuple2',
-				_0: model,
-				_1: _elm_lang$navigation$Navigation$newUrl(_p0._0)
-			};
+		switch (_p0.ctor) {
+			case 'OnLocationChange':
+				var newRoute = _user$project$Route$parseLocation(_p0._0);
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{route: newRoute}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'NewUrl':
+				var _p1 = _p0._0;
+				return {
+					ctor: '_Tuple2',
+					_0: model,
+					_1: _elm_lang$core$Platform_Cmd$batch(
+						{
+							ctor: '::',
+							_0: _elm_lang$navigation$Navigation$newUrl(_p1),
+							_1: {
+								ctor: '::',
+								_0: _user$project$Ports$updateAnalytics(_p1),
+								_1: {ctor: '[]'}
+							}
+						})
+				};
+			default:
+				return {
+					ctor: '_Tuple2',
+					_0: model,
+					_1: _user$project$Ports$setTitle(_p0._0)
+				};
 		}
 	});
 var _user$project$Update$subscriptions = function (model) {
@@ -10653,7 +10678,12 @@ var _user$project$Page_Home$postTitle = function (title) {
 										return (!_elm_lang$core$Native_Utils.eq(s, '')) && (!_elm_lang$core$Native_Utils.eq(s, '-'));
 									},
 									A2(_elm_lang$core$String$split, ' ', title)))))),
-				_1: {ctor: '[]'}
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Events$onClick(
+						_user$project$Types$SendToJs(title)),
+					_1: {ctor: '[]'}
+				}
 			}
 		},
 		{
@@ -11276,7 +11306,7 @@ var _user$project$Page_Home$render = A2(
 	});
 
 var _user$project$Page_Halive$markdownMake = '\n```make\ncd $(FE_ROOT) &&\nelm-live $(FE_SRC)/Main.elm\n   --output=main.js\n   --host=localhost\n   --port=8000\n   --pushstate```\n';
-var _user$project$Page_Halive$markdownStack = '\n```bash\nbrew install haskell-stack\nstack upgrade\nstack update\ngit clone https://github.com/lukexi/halive.git\nstack unpack halive\ncd halive-0.1.3\nstack build --test --no-run-tests\nhalive demo/Main.hs\n```\n';
+var _user$project$Page_Halive$markdownStack = '\n```bash\nbrew install haskell-stack\nstack upgrade\nstack update\ngit clone https://github.com/lukexi/halive.git\nbrew install sdl2\nstack unpack halive\ncd halive-0.1.3\nstack build --test --no-run-tests\nhalive demo/Main.hs\n```\n';
 var _user$project$Page_Halive$markdownStackRm = '\n```bash\nrm -rf ~/.stack ~/.ghc ~/.cabal\nrm -rf ~/.local/bin/\nbrew rm cabal-install\nbrew rm ghc\nbrew rm haskell-platform\nbrew rm haskell-stack\nbrew uninstall --force haskell-stack\nbrew cask uninstall haskell-platform\n```\n';
 var _user$project$Page_Halive$render = function (slug) {
 	return A2(

@@ -82,6 +82,7 @@ brew install haskell-stack
 stack upgrade
 stack update
 git clone https://github.com/lukexi/halive.git
+brew install sdl2
 stack unpack halive
 cd halive-0.1.3
 stack build --test --no-run-tests

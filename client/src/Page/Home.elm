@@ -113,10 +113,14 @@ postTitle : String -> Html Msg
 postTitle title =
     a
         [ class "navbar-item"
-        , onClick (NewUrl <| String.append "/post/"
-                       <| String.join "-"
-                       <| List.filter (\s-> s /= "" && s /= "-")
-                       <| String.split " " title)
+        , onClick
+            (NewUrl <|
+                String.append "/post/" <|
+                    String.join "-" <|
+                        List.filter (\s -> s /= "" && s /= "-") <|
+                            String.split " " title
+            )
+        , onClick <| Types.SendToJs title
         ]
         [ img
             [ alt "Haskell halive - hot code loading"
@@ -125,5 +129,5 @@ postTitle title =
             ]
             []
         , span [ property "innerHTML" ("&nbsp;" |> String.repeat 3 |> string) ]
-            [ text <| ">>= " ++ title ++ "" ++ " >>= Read it"]
+            [ text <| ">>= " ++ title ++ "" ++ " >>= Read it" ]
         ]

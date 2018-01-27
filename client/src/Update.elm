@@ -4,7 +4,7 @@ import Debug
 import Navigation exposing (Location)
 import Types exposing (Model, Msg)
 import Route exposing (parseLocation)
-import Ports exposing (setTitle)
+import Ports exposing (setTitle, updateAnalytics)
 
 
 init : Location -> ( Model, Cmd Msg )
@@ -35,5 +35,8 @@ update msg model =
             in
                 ( { model | route = newRoute }, Cmd.none )
 
-        Types.NewUrl newUrl ->
-            ( model, Navigation.newUrl newUrl )
+        Types.NewUrl url ->
+            ( model, Cmd.batch [Navigation.newUrl url, updateAnalytics url] )
+
+        Types.SendToJs title ->
+            (model, setTitle title)
