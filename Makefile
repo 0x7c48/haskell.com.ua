@@ -18,6 +18,8 @@ FE_SRC ?= src
 FE_BUILD ?= dist/build
 
 github-pages:
+	rm index.html && \
+	rm main.js && \
 	cp client/index.html . && \
 	cp client/main.js .
 
