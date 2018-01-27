@@ -11,7 +11,7 @@ type Msg
 type Route
     = Home
     | About
-    | PostShow Int
+    | PostShow String
     | NotFound
 
 

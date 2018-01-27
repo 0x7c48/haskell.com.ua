@@ -14,12 +14,12 @@ matchers =
         , map Types.About (s "about")
         , map Types.About (s "tech")
         , map Types.About (s "elm")
-        , map Types.About (s "python")
-        , map Types.About (s "django")
-        , map Types.About (s "clojure")
-        , map Types.About (s "clojurescript")
-        , map Types.About (s "flask")
-        , map Types.PostShow (s "post" </> int)
+--        , map Types.About (s "python")
+--        , map Types.About (s "django")
+--        , map Types.About (s "clojure")
+--        , map Types.About (s "clojurescript")
+--        , map Types.About (s "flask")
+        , map Types.PostShow (s "post" </> UrlParser.string)
         ]
 
 
@@ -42,8 +42,8 @@ routeToString route =
         Types.About ->
             "about"
 
-        Types.PostShow id ->
-            "post " ++ toString id
+        Types.PostShow slug ->
+            "post " ++ toString slug
 
         Types.NotFound ->
             ""

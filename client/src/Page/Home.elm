@@ -3,6 +3,8 @@ module Page.Home exposing (render)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
+import Json.Encode exposing (string)
+import Types exposing (Model, Msg(NewUrl))
 
 
 render =
@@ -92,4 +94,36 @@ render =
                     ]
                 ]
             ]
+        , section [ class "section" ]
+            [ div [ class "content is-mobile is-large" ]
+                [ h1 [] [ text "Posts" ]
+                , hr [] []
+                , postTitle "Halive - hot code loading"
+                ]
+            ]
+        , br [] []
+        , br [] []
+        , br [] []
+        , br [] []
+        , hr [] []
+        ]
+
+
+postTitle : String -> Html Msg
+postTitle title =
+    a
+        [ class "navbar-item"
+        , onClick (NewUrl <| String.append "/post/"
+                       <| String.join "-"
+                       <| List.filter (\s-> s /= "" && s /= "-")
+                       <| String.split " " title)
+        ]
+        [ img
+            [ alt "Haskell halive - hot code loading"
+            , attribute "height" "28"
+            , src "https://www.haskell.org/static/img/haskell-logo.svg"
+            ]
+            []
+        , span [ property "innerHTML" ("&nbsp;" |> String.repeat 3 |> string) ]
+            [ text <| ">>= " ++ title ++ "" ++ " >>= Read it"]
         ]

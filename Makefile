@@ -28,7 +28,8 @@ reload-fe:
 	elm-live $(FE_SRC)/Main.elm \
 		--output=main.js \
 		--host=localhost \
-		--port=8000
+		--port=8000 \
+		--pushstate
 
 build-fe:
 	cd $(FE_ROOT) && \

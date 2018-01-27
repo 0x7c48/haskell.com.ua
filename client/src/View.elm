@@ -3,13 +3,12 @@ module View exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
+
 import Types exposing (Model, Msg(NewUrl), Route)
+import Common.Menu as Menu
+import Common.Footer as Footer
 import Page.Home as Home
-import Page.Menu as Menu
-import Page.Footer as Footer
-
-
--- onClick (NewUrl "/contact")
+import Page.Halive as Halive
 
 
 {-| Main view, render all html
@@ -36,8 +35,8 @@ page model =
                 Types.About ->
                     text "about"
 
-                Types.PostShow postid ->
-                    text ("Render the post with id: " ++ toString postid)
+                Types.PostShow slug ->
+                    Halive.render slug
 
                 Types.NotFound ->
                     text ("NotFound")
