@@ -18,8 +18,14 @@
       var app = Elm.Main.embed(node);
       // header title
       app.ports.setTitle.subscribe(function (str) {
-        console.log("app.ports", str);
+        console.log("app.ports.setTitle from elm", str);
         document.title = str;
+      });
+
+      app.ports.updateAnalytics.subscribe(function (page) {
+        ga('set', 'page', page);
+        ga('send', 'pageview');
+        console.log("app.ports.updateAnalytics from elm", page);
       });
     </script>
 
