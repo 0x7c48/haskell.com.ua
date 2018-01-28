@@ -36,7 +36,17 @@ update msg model =
                 ( { model | route = newRoute }, Cmd.none )
 
         Types.NewUrl url ->
-            ( model, Cmd.batch [Navigation.newUrl url, updateAnalytics url] )
-
-        Types.SendToJs title ->
-            (model, setTitle title)
+            ( model
+            , Cmd.batch
+                [ Navigation.newUrl url
+                , updateAnalytics url
+                ]
+            )
+            
+        Types.NewUrlWithTitle url title ->
+           (model
+           , Cmd.batch
+                [ Navigation.newUrl url
+                , setTitle title
+                , updateAnalytics url
+                ])

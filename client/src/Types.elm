@@ -5,8 +5,8 @@ import Navigation exposing (Location)
 
 type Msg
     = NewUrl String
+    | NewUrlWithTitle String String
     | OnLocationChange Location
-    | SendToJs String
 
 
 type Route

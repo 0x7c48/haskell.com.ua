@@ -10022,12 +10022,13 @@ var _user$project$Types$initialModel = function (route) {
 var _user$project$Types$Model = function (a) {
 	return {route: a};
 };
-var _user$project$Types$SendToJs = function (a) {
-	return {ctor: 'SendToJs', _0: a};
-};
 var _user$project$Types$OnLocationChange = function (a) {
 	return {ctor: 'OnLocationChange', _0: a};
 };
+var _user$project$Types$NewUrlWithTitle = F2(
+	function (a, b) {
+		return {ctor: 'NewUrlWithTitle', _0: a, _1: b};
+	});
 var _user$project$Types$NewUrl = function (a) {
 	return {ctor: 'NewUrl', _0: a};
 };
@@ -10637,10 +10638,24 @@ var _user$project$Update$update = F2(
 						})
 				};
 			default:
+				var _p2 = _p0._0;
 				return {
 					ctor: '_Tuple2',
 					_0: model,
-					_1: _user$project$Ports$setTitle(_p0._0)
+					_1: _elm_lang$core$Platform_Cmd$batch(
+						{
+							ctor: '::',
+							_0: _elm_lang$navigation$Navigation$newUrl(_p2),
+							_1: {
+								ctor: '::',
+								_0: _user$project$Ports$setTitle(_p0._1),
+								_1: {
+									ctor: '::',
+									_0: _user$project$Ports$updateAnalytics(_p2),
+									_1: {ctor: '[]'}
+								}
+							}
+						})
 				};
 		}
 	});
@@ -10656,7 +10671,22 @@ var _user$project$Update$init = function (location) {
 	};
 };
 
+var _user$project$Page_Home$makePostUrl = function (title) {
+	return A2(
+		_elm_lang$core$String$append,
+		'/post/',
+		A2(
+			_elm_lang$core$String$join,
+			'-',
+			A2(
+				_elm_lang$core$List$filter,
+				function (s) {
+					return (!_elm_lang$core$Native_Utils.eq(s, '')) && (!_elm_lang$core$Native_Utils.eq(s, '-'));
+				},
+				A2(_elm_lang$core$String$split, ' ', title))));
+};
 var _user$project$Page_Home$postTitle = function (title) {
+	var url = _user$project$Page_Home$makePostUrl(title);
 	return A2(
 		_elm_lang$html$Html$a,
 		{
@@ -10665,25 +10695,8 @@ var _user$project$Page_Home$postTitle = function (title) {
 			_1: {
 				ctor: '::',
 				_0: _elm_lang$html$Html_Events$onClick(
-					_user$project$Types$NewUrl(
-						A2(
-							_elm_lang$core$String$append,
-							'/post/',
-							A2(
-								_elm_lang$core$String$join,
-								'-',
-								A2(
-									_elm_lang$core$List$filter,
-									function (s) {
-										return (!_elm_lang$core$Native_Utils.eq(s, '')) && (!_elm_lang$core$Native_Utils.eq(s, '-'));
-									},
-									A2(_elm_lang$core$String$split, ' ', title)))))),
-				_1: {
-					ctor: '::',
-					_0: _elm_lang$html$Html_Events$onClick(
-						_user$project$Types$SendToJs(title)),
-					_1: {ctor: '[]'}
-				}
+					A2(_user$project$Types$NewUrlWithTitle, url, title)),
+				_1: {ctor: '[]'}
 			}
 		},
 		{
